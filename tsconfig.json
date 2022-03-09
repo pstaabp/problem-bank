@@ -1,0 +1,35 @@
+// tsconfig.json
+{
+	"compilerOptions": {
+    "allowJs": true,
+    // `baseUrl` must be placed on the extending configuration in devland, or paths won't be recognized
+    "esModuleInterop": true,
+    "module": "es2020",
+    "moduleResolution": "node",
+    // Needed to address https://github.com/quasarframework/app-extension-typescript/issues/36
+    "noEmit": true,
+    "resolveJsonModule": true,
+    // Avoid cross-os errors due to inconsistent file casing
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "strict": true,
+    // Quasar-defined webpack aliases
+    "paths": {
+      "src/*": ["src/*"],
+      "app/*": ["*"],
+      "components/*": ["src/components/*"],
+      "layouts/*": ["src/layouts/*"],
+      "pages/*": ["src/pages/*"],
+      "assets/*": ["src/assets/*"],
+      "boot/*": ["src/boot/*"]
+    },
+		"baseUrl": ".",
+		"target": "es2020",
+		"lib": ["esnext", "dom", "dom.iterable"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@types"
+  ]
+	},
+	"exclude": ["dist", ".quasar", "node_modules"]
+}
